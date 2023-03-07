@@ -1,0 +1,48 @@
+#For SQS
+cloud:
+  aws:
+    region:
+      static: ap-south-1
+      auto: false
+    stack:
+      auto: false
+    credentials:
+      access-key: your access-key
+      secret-key: your secret-key
+    end-point:
+      uri: https://sqs.ap-south-1.amazonaws.com/944220359017/CO_TRIGGERS
+
+
+server:
+  port: 8083
+
+#For Email
+spring:
+  mail:
+    properties:
+      mail:
+        debug: 'true'
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp.gmail.com
+    username: your mail id
+    protocol: smtp
+    password: your app password
+    port: '587'
+
+#For DB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/citizen?createDatabaseIfNotExist=true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        show_sql: true
